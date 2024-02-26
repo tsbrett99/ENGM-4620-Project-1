@@ -1,7 +1,7 @@
 # Rental Property Analyzer
 
 # Description 
-The Rental Property Analyzer is a Python program designed to be used before investing in real estate. The program offers two options to the user, either a Rental Property Analysis or an Offer Calculator. The Rental Property Analysis is used to determine the capitalization rate, inital investment, and monthly cash flow. Pandas data frames are used to display a monthly projection for the ammortization term. The Offer Calculator is used to determine an offer price based on a targeted capitalization rate and known expenses. 
+The Rental Property Analyzer is a Python program designed to be used before investing in real estate. The program offers two options to the user, either a Rental Property Analysis or an Offer Calculator. The Rental Property Analysis is used to determine the capitalization rate, inital investment, and monthly cash flow. Pandas data frames are used to display a monthly projection for the ammortization term. The Offer Calculator is used to determine an offer price based on a targeted capitalization rate and known expenses. The program is operated from the command line.
 
 # Prerequisites
 * Python 3.12
