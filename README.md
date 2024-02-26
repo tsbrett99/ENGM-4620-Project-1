@@ -10,4 +10,7 @@ The Rental Property Analyzer is a Python program designed to be used before inve
 # Running the Application
 No database is required for this program. To use it properly, run `main.py` in your IDE. Select '1' or '2' based on which tool you are trying to run, and input the values based on the questions asked. Entering an invalid value will require re-entry of the data.
 
+# Academic Requirements
+A video presentation of the projects use along with a detailed report can be found at the following Google Drive link:
 
+PLACEHOLDER
