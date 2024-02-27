@@ -185,16 +185,18 @@ def OfferCalc(): # Second calculator included in the program, takes all the know
             if legal < 0:
                 raise ValueError("Legal fees cannot be negative")
             ipp = ippcalc(rate, loantype) # Storing the monthly interest rate based on user input.
-            top = (income - cap*legal/1200 - utilities - insurance - income*RVpercent/100) # Numerator of the initial offer.
+            downamount = float(0.05) # Initlization of the lowest downpayment required.
+            top = income - ipp*pow(1+ipp,length*12)/(pow(1+ipp,length*12)-1)*cmhcrate(downamount) - income*RVpercent/100 - insurance - utilities - legal*cap/1200 # Numerator of the initial offer.
             bottom = offerdenominator(0.05, transfertax, length, taxrate, ipp, cap) # Denominator of the initial offer via the denomiator function.
             offer = top/bottom # Equation used to derrive the initial offer to evaluate.
             twentybottom =offerdenominator(0.2, transfertax, length, taxrate, ipp, cap) # Same calculation as above but using 20% which will abide by all laws.
-            twentydown = top/twentybottom # Same calculation as above just using 20% instead of a smaller downpayment.
-            downamount = float(0.05) # Initlization of the lowest downpayment required.
+            twentytop = income - ipp*pow(1+ipp,length*12)/(pow(1+ipp,length*12)-1)*cmhcrate(0.2) - income*RVpercent/100 - insurance - utilities - legal*cap/1200
+            twentydown = twentytop/twentybottom # Same calculation as above just using 20% instead of a smaller downpayment.
+            
             
             if offer <= 500000: # Following if else statements are checking which loan to value the mortgage falls under.
                 mindown = offer # Initial calculated offer abides by all rules and can be used.
-                print("Using a CMHC loan with a minimum downpayment of %"+" %.2f yields:\n" %(downamount*100)) # Minimum downpayment will be used at 5%.
+                print("Using a CMHC loan with a minimum downpayment of  %.2f"%(downamount*100)+"% yields:\n") # Minimum downpayment will be used at 5%.
                 print("Offer: %.2f \n" %mindown) # Outputing the calculated offer using the min down percent.
                 print("Total Investment: $%.2f \n" %(downamount*mindown + legal + offer*transfertax/100)) # Total amount invested.
                 print("Rental property mortgage requiring a 20% downpayment yields:\n") # Ouput visual for 20% down.
@@ -203,10 +205,11 @@ def OfferCalc(): # Second calculator included in the program, takes all the know
                 break
             elif offer <= 1000000: # Checking if it sits between 500k and 1mil, if so the initial offer wont abide by all mortgage laws but a close offer can be found using a hgher downpayment.
                 while downamount < 0.1: # Starting at 5% down, recalculate a new offer and if it doesnt pass the check increase the downpayment size and loop again.
+                    temptop = income - ipp*pow(1+ipp,length*12)/(pow(1+ipp,length*12)-1)*cmhcrate(downamount) - income*RVpercent/100 - insurance - utilities - legal*cap/1200
                     tempbottom = offerdenominator(downamount, transfertax, length, taxrate, ipp, cap) # Calculate a new denominator with current down payment size.
-                    newoffer = top/tempbottom # New offer.
+                    newoffer = temptop/tempbottom # New offer.
                     if round((newoffer*downamount-25000)/(newoffer-500000),3) == 0.10: # Checks to see if the new offer abides by the CMHC requirments.
-                        print("Using a CMHC loan with a minimum downpayment of %" + "%.2f yields:\n" %(downamount*100)) # If a pass, output the accepted offer values.
+                        print("Using a CMHC loan with a minimum downpayment of %.2f"%(downamount*100)+"% yields:\n") # If a pass, output the accepted offer values.
                         print("Offer: $%.2f \n" %newoffer)
                         print("Total Investment: $%.2f \n" %(downamount*newoffer + legal + newoffer*transfertax/100))
                         print("Rental property mortgage requiring a 20% downpayment yields:\n")
