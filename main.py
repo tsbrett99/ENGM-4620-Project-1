@@ -72,7 +72,7 @@ def PropertyAnalysis():
             raise ValueError("Property price cannot be negative")
         rate = float(input('Interest Rate (%):'))
         if rate < 0:
-            raise ValueError("Tax rate cannot be negative")
+            raise ValueError("Interest rate cannot be negative")
         loantype = int(input('Loan Type (Fixed = 1, Variable = 2):'))
         if loantype not in [1, 2]:
             raise ValueError("Loan type must be either 1 or 2")
@@ -154,7 +154,7 @@ def OfferCalc(): # Second calculator included in the program, takes all the know
             raise ValueError("Capitalization rate cannot be negative")
         rate = float(input('Interest Rate (%):'))
         if rate < 0:
-            raise ValueError("Tax rate cannot be negative")
+            raise ValueError("Interest rate cannot be negative")
         loantype = int(input('Loan Type (Fixed = 1, Variable = 2):'))
         if loantype not in [1, 2]:
             raise ValueError("Loan type must be either 1 or 2")
