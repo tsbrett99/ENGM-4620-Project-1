@@ -9,20 +9,23 @@ The Rental Property Analyzer is a Python program designed to be used before inve
 
 # Running the Application
 No database is required for this program. To use it properly, run `main.py` in your IDE. Select '1' or '2' based on which tool you are trying to run, and input the values based on the questions asked. Entering an invalid value will require re-entry of the data.
+
 # Suggested Inputs
-* Price: 450000, but any value should work
-* Cap: 10, real world typically 1 to 4
-* mortgage rate: 5, current mortgage rate is around 5.1 have gone as low as 1
-* loan type: 1 or 2, most mortgages would be 1 (fixed)
-* ammortization: 25 or 30 years is typical
-* downpayment: 25000, property dependent so larger price higher downpayment required
-* rental income: 5000, can be any number but entirely property dependent
-* repairs and  maintenance: 1, 1% to 2% is typical value but its all about risk tolerance
-* property tax rate: 1.2, 1.2 is novascotias rate but ranges between 0.5-2 nationally
-* utilities: 400, once again can be anything depending on property
-* monthly insurance: 110, can be 50-200+ depending on property type and worth
-* transfer tax: 1.5, 1.5% is nova scotias rate and varies province to province
-* legal fees: 1200, usually correllated to property price
+The calculator is meant to work with any valid inputs, but for those unfamilliar with real estate values these example numbers work well:
+
+* Price: `450000`, but any value should work.
+* Cap: `10`, real world typically 1 to 4.
+* Mortgage rate: `5`, current mortgage rate is around 5.1 but they have gone as low as 1.
+* Loan type: `1` or `2`, most mortgages would be 1 (fixed).
+* Ammortization: `25` or `30` years is typical.
+* Downpayment: `25000`, property dependent so larger price higher downpayment required.
+* Rental income: `5000`, can be any number but entirely property dependent.
+* Repairs and  maintenance: `1`, 1% to 2% is typical value but its all about risk tolerance.
+* Property tax rate: `1.2`, 1.2 is novascotias rate but ranges between 0.5-2 nationally.
+* Utilities: `400`, once again can be anything depending on property.
+* Monthly insurance: `110`, can be 50-200+ depending on property type and worth.
+* Transfer tax: `1.5`, 1.5% is nova scotias rate and varies province to province.
+* Legal fees: `1200`, usually correllated to property price.
 
 
 # Academic Requirements
