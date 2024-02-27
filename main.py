@@ -1,24 +1,34 @@
 import math # Library required to perform some more advanced functions.
 import pandas as pd # Used data frames to clean up the output visually from the analysis calculator as its in tabular form.
 
-def RentalCalc(): # Master function used to iniate the program and ask which calculation the user wants to perform.
-    while True:
-        print("Rental Calculator\n"+
-            "____________________________\n"+
-            "Enter the number of the desired rental calculation.\n"+
-            "____________________________\n")
-        print("1. Rental Property Analysis (Known Price)\n2. Calculate Rental Property Offer (Known Cap Rate)")  #initial outputs listing descrption of the two available choices.
-        
-        choice = input("1 or 2: ") # Input prompt for user.
-        
-        if choice == "1": # Following lines of code are just checking which type the user chose and calling the corresponding code.
+def RentalCalc():
+    while True:  # Loop to allow multiple analyses or offers
+        print("Rental Calculator\n" +
+              "____________________________\n" +
+              "Enter the number of the desired rental calculation.\n" +
+              "____________________________\n")
+        print("1. Rental Property Analysis (Known Price)\n2. Calculate Rental Property Offer (Known Cap Rate)")  # Initial outputs listing description of the two available choices.
+
+        choice = input("1 or 2: ")  # Input prompt for user.
+
+        if choice == "1":  # Following lines of code are just checking which type the user chose and calling the corresponding code.
             PropertyAnalysis()
-            break
         elif choice == "2":
             OfferCalc()
-            break
         else:
             print("Please enter a valid option (1 or 2).\n")
+            continue  # Restart the loop if the input is invalid
+
+        # Ask user if they want to end the program or run another analysis
+        while True:  # Loop until valid input is provided
+            end_program = input("Do you want to end the program? (yes/no): ").lower()
+            if end_program == "yes":
+                print("Thank you for using the Rental Calculator!")
+                return  # Exit the function, ending the program
+            elif end_program == "no":
+                break  # Exit the loop to continue with another analysis
+            else:
+                print("Invalid input. Please enter 'yes' or 'no'.")
 
         
 def cmhcrate(downpercent): # This function is called for both analysis and offer calculators and returns the cmhc insurance premium ratio based on loan to value ratio.
@@ -190,6 +200,7 @@ def OfferCalc(): # Second calculator included in the program, takes all the know
                 print("Rental property mortgage requiring a 20% downpayment yields:\n") # Ouput visual for 20% down.
                 print("Offer: $%.2f \n" %twentydown) # Offer to make at 20% down.
                 print("Total Investment: $%.2f" %(0.2*twentydown + legal + offer*transfertax/100)) # Total investment.
+                break
             elif offer <= 1000000: # Checking if it sits between 500k and 1mil, if so the initial offer wont abide by all mortgage laws but a close offer can be found using a hgher downpayment.
                 while downamount < 0.1: # Starting at 5% down, recalculate a new offer and if it doesnt pass the check increase the downpayment size and loop again.
                     tempbottom = offerdenominator(downamount, transfertax, length, taxrate, ipp, cap) # Calculate a new denominator with current down payment size.
@@ -202,8 +213,10 @@ def OfferCalc(): # Second calculator included in the program, takes all the know
                         print("Offer: $%.2f \n" %twentydown)
                         print("Total Investment: $%.2f" %(0.2*twentydown + legal + twentydown*transfertax/100))
                         downamount = 1 # End loop.
+                        break
                     else:
                         downamount = float(downamount + 0.00001) # If it fails to pass the check, increase downpayment and loop again.
+                        break
             else: # Of the offer is above 1 million a 20% downpayment is required.
                 downamount = 0.2 # Set down amount to 20%.
                 offer = twentydown # Lowest down offer is twenty percent.
