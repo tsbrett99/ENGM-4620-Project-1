@@ -216,7 +216,6 @@ def OfferCalc(): # Second calculator included in the program, takes all the know
                         break
                     else:
                         downamount = float(downamount + 0.00001) # If it fails to pass the check, increase downpayment and loop again.
-                        break
             else: # Of the offer is above 1 million a 20% downpayment is required.
                 downamount = 0.2 # Set down amount to 20%.
                 offer = twentydown # Lowest down offer is twenty percent.
