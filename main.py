@@ -2,12 +2,12 @@ import math # Library required to perform some more advanced functions.
 import pandas as pd # Used data frames to clean up the output visually from the analysis calculator as its in tabular form.
 
 def RentalCalc():
-    while True:  # Loop to allow multiple analyses or offers
+    while True:
         print("Rental Calculator\n" +
               "____________________________\n" +
               "Enter the number of the desired rental calculation.\n" +
               "____________________________\n")
-        print("1. Rental Property Analysis (Known Price)\n2. Calculate Rental Property Offer (Known Cap Rate)")  # Initial outputs listing description of the two available choices.
+        print("1. Rental Property Analysis (Known Price)\n2. Calculate Rental Property Offer (Known Cap Rate)")
 
         choice = input("1 or 2: ")  # Input prompt for user.
 
@@ -29,6 +29,7 @@ def RentalCalc():
                 break  # Exit the loop to continue with another analysis
             else:
                 print("Invalid input. Please enter 'yes' or 'no'.")
+                continue  # Restart the loop if the input is invalid
 
         
 def cmhcrate(downpercent): # This function is called for both analysis and offer calculators and returns the cmhc insurance premium ratio based on loan to value ratio.
