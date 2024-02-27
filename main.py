@@ -67,38 +67,38 @@ def offerdenominator(downrate, transfertax, length, taxrate, ipp, cap): # Called
     
 def PropertyAnalysis():
     try:  # Making sure all inputs are the correct type.
-        price = float(input('Property Price:'))
+        price = float(input('Property Price ($):'))
         if price < 0:
             raise ValueError("Property price cannot be negative")
-        rate = float(input('Interest Rate(%):'))
+        rate = float(input('Interest Rate (%):'))
         if rate < 0:
             raise ValueError("Tax rate cannot be negative")
-        loantype = int(input('Loan Type(Fixed = 1, Variable = 2):'))
+        loantype = int(input('Loan Type (Fixed = 1, Variable = 2):'))
         if loantype not in [1, 2]:
             raise ValueError("Loan type must be either 1 or 2")
-        length = int(input('Amortization Length(Years):'))
-        down = float(input('Down Payment:'))
+        length = int(input('Amortization Length (Years):'))
+        down = float(input('Down Payment ($):'))
         if down < 0:
             raise ValueError("Down payment cannot be negative")
-        income = float(input('Expected Monthly Income:'))
+        income = float(input('Expected Monthly Income ($):'))
         if income < 0:
             raise ValueError("Monthly income cannot be negative")
-        RVpercent = float(input('Repairs and Vacancies(%):'))
+        RVpercent = float(input('Repairs and Vacancies (%):'))
         if RVpercent < 0:
             raise ValueError("Repairs and Vacancies percentage cannot be negative")
-        taxrate = float(input('Property Tax Rate(%):'))
+        taxrate = float(input('Property Tax Rate (%):'))
         if taxrate < 0:
             raise ValueError("Property tax rate cannot be negative")
-        utilities = float(input('Monthly Utilities Expense:'))
+        utilities = float(input('Monthly Utilities Expense ($):'))
         if utilities < 0:
             raise ValueError("Monthly utilities expense cannot be negative")
-        insurance = float(input('Monthly Insurance Expense:'))
+        insurance = float(input('Monthly Insurance Expense ($):'))
         if insurance < 0:
             raise ValueError("Monthly insurance expense cannot be negative")
-        transfertax = float(input('Land Transfer Tax(%):'))
+        transfertax = float(input('Land Transfer Tax (%):'))
         if transfertax < 0:
             raise ValueError("Land transfer tax cannot be negative")
-        legal = float(input('Expected Legal Fees:'))
+        legal = float(input('Expected Legal Fees ($):'))
         if legal < 0:
             raise ValueError("Legal fees cannot be negative")
     
@@ -149,37 +149,37 @@ def PropertyAnalysis():
     
 def OfferCalc(): # Second calculator included in the program, takes all the known cash flow and desired cap rate as well as financing info to produce an offer that would return the desired cap rate.
     try:
-        cap = float(input('Desired Cap Rate(%):')) # Next few rows are prompts for inputs from the user.
+        cap = float(input('Desired Cap Rate (%):')) # Next few rows are prompts for inputs from the user.
         if cap < 0:
             raise ValueError("Capitalization rate cannot be negative")
         rate = float(input('Interest Rate (%):'))
         if rate < 0:
             raise ValueError("Tax rate cannot be negative")
-        loantype = int(input('Loan Type(Fixed = 1, Variable = 2):'))
+        loantype = int(input('Loan Type (Fixed = 1, Variable = 2):'))
         if loantype not in [1, 2]:
             raise ValueError("Loan type must be either 1 or 2")
-        length = int(input('Ammortization Length(Years):'))
+        length = int(input('Ammortization Length (Years):'))
         if length < 0:
             raise ValueError("Ammortization length cannot be negative")
-        income = float(input('Expected Monthly Income:'))
+        income = float(input('Expected Monthly Income ($):'))
         if income < 0:
             raise ValueError("Excepected income cannot be negative")
-        RVpercent = float(input('Repairs and Vacancies(%):'))
+        RVpercent = float(input('Repairs and Vacancies (%):'))
         if RVpercent < 0:
             raise ValueError("Repairs and Vacancies percentage cannot be negative")
-        taxrate = float(input('Property Tax Rate(%):'))
+        taxrate = float(input('Property Tax Rate (%):'))
         if taxrate < 0:
             raise ValueError("Property tax rate cannot be negative")
-        utilities = float(input('Monthly Utilities Expense:'))
+        utilities = float(input('Monthly Utilities Expense ($):'))
         if utilities < 0:
             raise ValueError("Monthly utilities expense cannot be negative")
-        insurance = float(input('Monthly Insurance Expense:'))
+        insurance = float(input('Monthly Insurance Expense ($):'))
         if insurance < 0:
             raise ValueError("Monthly insurance expense cannot be negative")
-        transfertax = float(input('Land Transfer Tax(%):'))
+        transfertax = float(input('Land Transfer Tax (%):'))
         if transfertax < 0:
             raise ValueError("Land transfer tax cannot be negative")
-        legal = float(input('Expected Legal Fees:'))
+        legal = float(input('Expected Legal Fees ($):'))
         if legal < 0:
             raise ValueError("Legal fees cannot be negative")
         ipp = ippcalc(rate, loantype) # Storing the monthly interest rate based on user input.
