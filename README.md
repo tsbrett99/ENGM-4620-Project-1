@@ -20,7 +20,7 @@ No database is required for this program. To use it properly, run `main.py` in y
 * repairs and  maintenance: 1, 1% to 2% is typical value but its all about risk tolerance
 * property tax rate: 1.2, 1.2 is novascotias rate but ranges between 0.5-2 nationally
 * utilities: 400, once again can be anything depending on property
-* insurance: 1200, can be 500-3000+ depending on property type
+* monthly insurance: 110, can be 50-200+ depending on property type and worth
 * transfer tax: 1.5, 1.5% is nova scotias rate and varies province to province
 * legal fees: 1200, usually correllated to property price
 
