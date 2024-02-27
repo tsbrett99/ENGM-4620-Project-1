@@ -184,12 +184,12 @@ def OfferCalc(): # Second calculator included in the program, takes all the know
             
             if offer <= 500000: # Following if else statements are checking which loan to value the mortgage falls under.
                 mindown = offer # Initial calculated offer abides by all rules and can be used.
-                print("Using a CMHC loan with a minimum downpayment of % %.2f yields:\n" %(downamount*100)) # Minimum downpayment will be used at 5%.
+                print("Using a CMHC loan with a minimum downpayment of %"+" %.2f yields:\n" %(downamount*100)) # Minimum downpayment will be used at 5%.
                 print("Offer: %.2f \n" %mindown) # Outputing the calculated offer using the min down percent.
                 print("Total Investment: $%.2f \n" %(downamount*mindown + legal + offer*transfertax/100)) # Total amount invested.
                 print("Rental property mortgage requiring a 20% downpayment yields:\n") # Ouput visual for 20% down.
                 print("Offer: $%.2f \n" %twentydown) # Offer to make at 20% down.
-                print("Total Investment: $%.2f" %(downamount*twentydown + legal + offer*transfertax/100)) # Total investment.
+                print("Total Investment: $%.2f" %(0.2*twentydown + legal + offer*transfertax/100)) # Total investment.
             elif offer <= 1000000: # Checking if it sits between 500k and 1mil, if so the initial offer wont abide by all mortgage laws but a close offer can be found using a hgher downpayment.
                 while downamount < 0.1: # Starting at 5% down, recalculate a new offer and if it doesnt pass the check increase the downpayment size and loop again.
                     tempbottom = offerdenominator(downamount, transfertax, length, taxrate, ipp, cap) # Calculate a new denominator with current down payment size.
@@ -209,7 +209,7 @@ def OfferCalc(): # Second calculator included in the program, takes all the know
                 offer = twentydown # Lowest down offer is twenty percent.
                 print("Rental property mortgage requiring a minimum 20% downpayment yields:\n") # Output the 20% down values.
                 print("Offer: $%.2f \n" %twentydown)
-                print("Total Investment: $%.2f" %(downamount*twentydown + legal + offer*transfertax/100))
+                print("Total Investment: $%.2f" %(0.2*twentydown + legal + offer*transfertax/100))
                 break
         except ValueError as e:
             print(e)
