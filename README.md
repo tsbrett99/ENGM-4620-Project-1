@@ -31,4 +31,4 @@ The calculator is meant to work with any valid inputs, but for those unfamilliar
 # Academic Requirements
 A video presentation of the projects use along with a detailed report can be found at the following Google Drive link:
 
-PLACEHOLDER
+[Google Drive](https://drive.google.com/drive/folders/1p116VPdgKfrkHgiqHbi3c8FEWedGV8kB?usp=drive_link)
